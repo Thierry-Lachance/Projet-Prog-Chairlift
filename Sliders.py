@@ -112,7 +112,7 @@ class Sliders(ctk.CTkFrame) :
         """LONGUEUR CABLE"""
         self.slider_cable.configure(state="disabled" if selection == 1 else "normal")
 
-        resultat1 =  self.chairlift.setParametreObserver("nombreDeChaise")
+        resultat1 =  self.chairlift.setParametreObserver("longeurDuTrajet") if selection == 1 else True
         if selection == 1  and resultat1 :
             print("Graph longeur cable dans la bonne place")
             self.mise_a_jour()
@@ -122,7 +122,7 @@ class Sliders(ctk.CTkFrame) :
         """NOMBRE DE CHAISES"""
         self.slider_chaise.configure(state="disabled" if selection == 2 else "normal")
 
-        resultat2 = self.chairlift.setParametreObserver("nombreDeChaise")
+        resultat2 = self.chairlift.setParametreObserver("nombreDeChaise") if selection == 2 else True
         if selection == 2 and resultat2 :
             print("Graph nombre chaise dans la bonne place")
             self.mise_a_jour()
@@ -132,7 +132,7 @@ class Sliders(ctk.CTkFrame) :
         """VITESSE"""
         self.slider_vitesse.configure(state="disabled" if selection == 3 else "normal")
         
-        resultat3 = self.chairlift.setParametreObserver("vitesse")
+        resultat3 = self.chairlift.setParametreObserver("vitesse") if selection == 3 else True
         if selection == 3 and resultat3:
             print("Graph vitesse dans la bonne place")
             self.mise_a_jour()
@@ -141,7 +141,7 @@ class Sliders(ctk.CTkFrame) :
 
         """TEMPS EMBARQUEMENT"""
         self.slider_embarque.configure(state="disabled" if selection == 4 else "normal")
-        resultat4 = self.chairlift.setParametreObserver("tempsEmbarquement")
+        resultat4 = self.chairlift.setParametreObserver("tempsEmbarquement") if selection == 4 else True
         if selection == 4 and  resultat4:
             print("Graph temps embarquement dans la bonne place")
             self.mise_a_jour()
@@ -150,7 +150,7 @@ class Sliders(ctk.CTkFrame) :
 
         """TEMPS DEBARQUEMENT"""
         self.slider_debarque.configure(state="disabled" if selection == 5 else "normal")
-        resultat5 = self.chairlift.setParametreObserver("tempsDebarquement")
+        resultat5 = self.chairlift.setParametreObserver("tempsDebarquement") if selection == 5 else True
         if selection == 5 and resultat5 :
             print("Graph temps debarquement dans la bonne place")
             self.mise_a_jour()
@@ -159,12 +159,13 @@ class Sliders(ctk.CTkFrame) :
 
         """CAPACITÉ CHAISE"""
         self.slider_capacite.configure(state="disabled" if selection == 6 else "normal")
-        resultat6 = self.chairlift.setParametreObserver("nombreDePersonnesParChaise")
+        resultat6 = self.chairlift.setParametreObserver("nombreDePersonnesParChaise") if selection == 6 else True
         if selection == 6 and resultat6 :
             print("Graph capacité dans la bonne place")
             self.mise_a_jour()
         if not resultat6 :
             print("Erreur dans le setter 6")
+        
         
     
 

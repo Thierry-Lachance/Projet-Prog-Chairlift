@@ -28,8 +28,7 @@ class MainApp(ctk.CTk) :
     # mettre à jour le graphique 
     def mettre_a_jour(self):
         #TODO regler le edge case de aucun paramètre observé, c'est juste vide 
-        #TODO c'est quoi le bon titre????
-        self.graph.mise_a_jour_image(titre="Graphique sélectionné")
+        self.graph.mise_a_jour_image()
 
 
 

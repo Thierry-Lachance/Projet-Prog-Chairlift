@@ -28,7 +28,7 @@ class GraphControl(tk.Frame):
 
 
 #fonction pour que l'image puisse changer lors de la modification des parametres
-    def mise_a_jour_image(self, titre,titrey="Personnes par heure"):
+    def mise_a_jour_image(self,titrey="Personnes par heure"):
         ## DOIT PRENDRE EN PARAMETRE FONCTION QUI VERIFIER SI DONNÉES ONT CHARGER CORRECTEMENT??
         ## Attribu titre doit etre modifiable -- quel sont les titres possible???, faire comme avec titrex
         
@@ -36,11 +36,17 @@ class GraphControl(tk.Frame):
 
         ##Creation dictionnaire des noms d'axe des x possible et accesseur de parametre ajouter
         parametre_obs = self.modele.getParametreObserver()
-        dic ={"vitesse":["Vitesse"], "nombreDeChaise":["Nombre de chaise"], "longeurDuTrajet":["Longeur du trajet"],
+
+        #Creation attribut du titre de l'axe des x
+        titrex_dic ={"vitesse":["Vitesse"], "nombreDeChaise":["Nombre de chaise"], "longeurDuTrajet":["Longeur du trajet"],
                   "tempsEmbarquement":["Temps embarquement"], "tempsDebarquement":["Temps debarquement"], "nombreDePersonnesParChaise":["Personnes par chaise"], "none":["Vide"]}
-        
-        #Creation attribu du titre de l'axe des x
-        titrex = dic[parametre_obs][0]
+        #Creation attribut du titre de graphique
+        titre_dic ={"vitesse":["Débit selon la vitesse"], "nombreDeChaise":["Débit selon les chaises"], "longeurDuTrajet":["Débit selon la longueur"],
+                    "tempsEmbarquement":["Débit selon l'embarquement"],"tempsDebarquement":["Débit selon débarquement"],"nombreDePersonnesParChaise":["Débit selon la capacité par chaise"],
+                    "none":["Aucun paramètre sélectionné"]}      
+
+        titrex = titrex_dic[parametre_obs][0]
+        titre = titre_dic[parametre_obs][0]
 
         self.axis.clear()
         self.axis.set(title=titre,
@@ -68,5 +74,5 @@ class GraphControl(tk.Frame):
 #g = GraphControl(root, modele=mon_Chairlift)
 #
 #g.pack(fill="both", expand=True)
-#g.mise_a_jour_image("Test","Temps")
+#g.mise_a_jour_image("Temps")
 #root.mainloop()
